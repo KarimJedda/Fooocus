@@ -4,6 +4,60 @@
 *(Screenshot of Fooocus Realistic "run_realistic.bat" using default parameters without any manual tweaking)*
 </div>
 
+# tldr
+
+This is tailored for Ubuntu
+
+- Splitting getting models & running the tool 
+- Removing much of the magic imports 
+
+## Dependencies
+
+Recommended to go with python 3.10.12
+Download models and put them somewhere in your system (this should be a system wide utility)
+
+OG files: 
+
+wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0_0.9vae.safetensors
+wget https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0_0.9vae.safetensors
+wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_offset_example-lora_1.0.safetensors
+
+Files from OP (would need inspection): 
+
+wget https://huggingface.co/lllyasviel/misc/resolve/main/xl-to-v1_interposer-v3.1.safetensors
+wget https://huggingface.co/lllyasviel/misc/resolve/main/xlvaeapp.pth
+wget https://huggingface.co/lllyasviel/misc/resolve/main/vaeapp_sd15.pt -O vaeapp_sd15.pth
+wget https://huggingface.co/lllyasviel/misc/resolve/main/fooocus_expansion.bin
+
+Store the files in any folder on your system and symlink them to the foocus folders like this:
+
+to models/checkpoints/
+    sd_xl_base_1.0_0.9vae.safetensors 
+    sd_xl_refiner_1.0_0.9vae.safetensors
+
+to models/loras 
+    sd_xl_offset_example-lora_1.0.safetensors
+
+to models/vae_approx
+    xlvaeapp.pth
+    vaeapp_sd15.pth
+    xl-to-v1_interposer-v3.1.safetensors
+
+to models/prompt_expansion/fooocus_expansion
+    fooocus_expansion.bin
+
+
+
+## Running 
+
+python3 -m venv venv  
+source venv/bin/activate
+pip install -r requirements.txt 
+python webui.py 
+
+That's it really...
+
+
 # Fooocus
 
 Fooocus is an image generating software (based on [Gradio](https://www.gradio.app/)).
