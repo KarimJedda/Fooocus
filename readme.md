@@ -16,20 +16,26 @@ This is tailored for Ubuntu
 Recommended to go with python 3.10.12
 Download models and put them somewhere in your system (this should be a system wide utility)
 
-OG files: 
 
+```bash
+
+# OG files
 wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0_0.9vae.safetensors
 wget https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0_0.9vae.safetensors
 wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_offset_example-lora_1.0.safetensors
 
-Files from OP (would need inspection): 
-
+# Files from OP (would need inspection): 
 wget https://huggingface.co/lllyasviel/misc/resolve/main/xl-to-v1_interposer-v3.1.safetensors
 wget https://huggingface.co/lllyasviel/misc/resolve/main/xlvaeapp.pth
 wget https://huggingface.co/lllyasviel/misc/resolve/main/vaeapp_sd15.pt -O vaeapp_sd15.pth
 wget https://huggingface.co/lllyasviel/misc/resolve/main/fooocus_expansion.bin
 
+```
+
+
 Store the files in any folder on your system and symlink them to the foocus folders like this:
+
+```
 
 to models/checkpoints/
     sd_xl_base_1.0_0.9vae.safetensors 
@@ -46,7 +52,7 @@ to models/vae_approx
 to models/prompt_expansion/fooocus_expansion
     fooocus_expansion.bin
 
-
+```
 
 ## Running 
 
