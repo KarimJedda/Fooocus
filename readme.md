@@ -56,10 +56,12 @@ to models/prompt_expansion/fooocus_expansion
 
 ## Running 
 
+```
 python3 -m venv venv  
 source venv/bin/activate
 pip install -r requirements.txt 
 python webui.py 
+```
 
 That's it really...
 
